@@ -1,7 +1,7 @@
 {
-  "name": "bb-blocks",
+  "name": "@bbge/blocks",
   "version": "0.1.0",
-  "description": "bb-blocks is a library for building creative computing interfaces.",
+  "description": "@bbge/blocks is a library for building creative computing interfaces.",
   "author": "Massachusetts Institute of Technology",
   "license": "Apache-2.0",
   "homepage": "https://github.com/FBDY/bb-blocks",
