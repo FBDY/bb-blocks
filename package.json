@@ -1,6 +1,6 @@
 {
   "name": "@bbge/blocks",
-  "version": "0.1.0",
+  "version": "0.0.1-prerelease.20181204181643",
   "description": "@bbge/blocks is a library for building creative computing interfaces.",
   "author": "Massachusetts Institute of Technology",
   "license": "Apache-2.0",
