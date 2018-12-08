@@ -28,6 +28,16 @@ goog.require('Blockly.constants');
 goog.require('Blockly.ScratchBlocks.VerticalExtensions');
 
 
+Blockly.Blocks['motion_gather_clones'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.MOTION_GATHER_CLONES,
+      "category": Blockly.Categories.motion,
+      "extensions": ["colours_motion", "shape_statement"]
+    });
+  }
+};
+
 Blockly.Blocks['motion_movesteps'] = {
   /**
    * Block to move steps.
