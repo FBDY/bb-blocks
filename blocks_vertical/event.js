@@ -221,6 +221,31 @@ Blockly.Blocks['event_broadcast_menu'] = {
   }
 };
 
+Blockly.Blocks['event_sendmsg'] = {
+  /**
+   * Block to send a broadcast.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "id": "event_sendmsg",
+      "message0": Blockly.Msg.EVENT_SENDMSG,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "MESSAGE"
+        },
+        {
+          "type": "input_value",
+          "name": "TARGET"
+        }
+      ],
+      "category": Blockly.Categories.event,
+      "extensions": ["colours_event", "shape_statement"]
+    });
+  }
+}
+
 Blockly.Blocks['event_broadcast'] = {
   /**
    * Block to send a broadcast.
