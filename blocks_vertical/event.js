@@ -262,6 +262,53 @@ Blockly.Blocks['event_broadcastandwait'] = {
   }
 };
 
+Blockly.Blocks['event_sendmsg_target_menu'] = {
+  /**
+   * Send message target selection menu
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "SENDMSG_TARGET",
+          "options": [
+            [Blockly.Msg.CONTROL_CREATECLONEOF_MYSELF, '_myself_']
+          ]
+        }
+      ],
+      "extensions": ["colours_event", "output_string"]
+    });
+  }
+};
+
+Blockly.Blocks['event_sendmsg'] = {
+  /**
+   * Block to send a message to a sprite.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "id": "event_sendmsg",
+      "message0": Blockly.Msg.EVENT_SENDMSG,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "BROADCAST_INPUT"
+        },
+        {
+          "type": "input_value",
+          "name": "SENDMSG_TARGET"
+        }
+      ],
+      "category": Blockly.Categories.event,
+      "extensions": ["colours_event", "shape_statement"]
+    });
+  }
+};
+
 Blockly.Blocks['event_whenkeypressed'] = {
   /**
    * Block to send a broadcast.
