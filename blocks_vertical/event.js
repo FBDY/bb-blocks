@@ -275,7 +275,8 @@ Blockly.Blocks['event_sendmsg_target_menu'] = {
           "type": "field_dropdown",
           "name": "SENDMSG_TARGET",
           "options": [
-            [Blockly.Msg.CONTROL_CREATECLONEOF_MYSELF, '_myself_']
+            // XXX: What effect does this have?
+            // Left it empty and it worked just fine.
           ]
         }
       ],
