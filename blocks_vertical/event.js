@@ -297,7 +297,7 @@ Blockly.Blocks['event_sendmsg'] = {
       "args0": [
         {
           "type": "input_value",
-          "name": "SENDMSG_MSG"
+          "name": "BROADCAST_INPUT"
         },
         {
           "type": "input_value",

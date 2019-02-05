@@ -275,7 +275,7 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
       '</value>' +
     '</block>' +
     '<block type="event_sendmsg" id="event_sendmsg">' +
-      '<value name="SENDMSG_MSG">' +
+      '<value name="BROADCAST_INPUT">' +
         '<shadow type="event_broadcast_menu"></shadow>' +
       '</value>' +
       '<value name="SENDMSG_TARGET">' +
