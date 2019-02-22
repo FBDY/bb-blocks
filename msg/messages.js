@@ -48,6 +48,7 @@ Blockly.Msg.CONTROL_REPEATUNTIL = 'repeat until %1';
 Blockly.Msg.CONTROL_WHILE = 'while %1';
 Blockly.Msg.CONTROL_FOREACH = 'for each %1 in %2';
 Blockly.Msg.CONTROL_STARTASCLONE = 'when I start as a clone';
+Blockly.Msg.CONTROL_STARTASNAMEDCLONE = 'when I start as a clone named %1';
 Blockly.Msg.CONTROL_CREATECLONEOF = 'create clone of %1';
 Blockly.Msg.CONTROL_CREATECLONEOF_MYSELF = 'myself';
 Blockly.Msg.CONTROL_DELETETHISCLONE = 'delete this clone';
@@ -55,6 +56,7 @@ Blockly.Msg.CONTROL_COUNTER = 'counter';
 Blockly.Msg.CONTROL_INCRCOUNTER = 'increment counter';
 Blockly.Msg.CONTROL_CLEARCOUNTER = 'clear counter';
 Blockly.Msg.CONTROL_ALLATONCE = 'all at once';
+Blockly.Msg.DEFAULT_CLONE_NAME = 'name';
 
 // Data blocks
 Blockly.Msg.DATA_SETVARIABLETO = 'set %1 to %2';
