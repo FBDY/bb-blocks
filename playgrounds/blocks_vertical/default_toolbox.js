@@ -274,6 +274,14 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
         '<shadow type="event_broadcast_menu"></shadow>' +
       '</value>' +
     '</block>' +
+    '<block type="event_sendmsg" id="event_sendmsg">' +
+      '<value name="BROADCAST_INPUT">' +
+        '<shadow type="event_broadcast_menu"></shadow>' +
+      '</value>' +
+      '<value name="SENDMSG_TARGET">' +
+        '<shadow type="event_sendmsg_target_menu"></shadow>' +
+      '</value>' +
+    '</block>' +
   '</category>' +
   '<category name="%{BKY_CATEGORY_CONTROL}" id="control" colour="#FFAB19" secondaryColour="#CF8B17">' +
     '<block type="control_wait" id="control_wait">' +
