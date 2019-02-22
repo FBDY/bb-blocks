@@ -403,7 +403,6 @@ Blockly.Blocks['control_clone_name_menu'] = {
    */
   init: function() {
     this.jsonInit({
-      "id": "control_clone_name_menu",
       "message0": "%1",
       "args0": [
         {
@@ -413,11 +412,13 @@ Blockly.Blocks['control_clone_name_menu'] = {
           "variable": Blockly.Msg.DEFAULT_CLONE_NAME
         }
       ],
-      "category": Blockly.Categories.control,
-      "extensions": ["colours_control", "shape_hat"]
+      "colour": Blockly.Colours.control.secondary,
+      "colourSecondary": Blockly.Colours.control.secondary,
+      "colourTertiary": Blockly.Colours.control.tertiary,
+      "extensions": ["output_string"]
     });
   }
-}
+};
 
 Blockly.Blocks['control_start_as_named_clone'] = {
   /**
