@@ -342,6 +342,14 @@ Blockly.NEW_BROADCAST_MESSAGE_ID = 'NEW_BROADCAST_MESSAGE_ID';
 Blockly.BROADCAST_MESSAGE_VARIABLE_TYPE = 'broadcast_msg';
 
 /**
+ * String representing the variable type of named clones.
+ * This string, for use in differentiating between types of variables,
+ * indicates that the current variable is a named clone.
+ * @const {string}
+ */
+Blockly.CLONE_NAME_VARIABLE_TYPE = 'clone_name';
+
+/**
  * String representing the variable type of list blocks.
  * This string, for use in differentiating between types of variables,
  * indicates that the current variable is a list.
