@@ -55,6 +55,7 @@ Blockly.Msg["EVENT_WHENGREATERTHAN_TIMER"] = "timer";
 Blockly.Msg["EVENT_WHENGREATERTHAN_LOUDNESS"] = "loudness";
 Blockly.Msg["EVENT_BROADCAST"] = "broadcast %1";
 Blockly.Msg["EVENT_BROADCASTANDWAIT"] = "broadcast %1 and wait";
+Blockly.Msg["EVENT_SENDMSG"] = "send %1 to %2";
 Blockly.Msg["EVENT_WHENKEYPRESSED"] = "when %1 key pressed";
 Blockly.Msg["EVENT_WHENKEYPRESSED_SPACE"] = "space";
 Blockly.Msg["EVENT_WHENKEYPRESSED_LEFT"] = "left arrow";
