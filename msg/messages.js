@@ -57,6 +57,9 @@ Blockly.Msg.CONTROL_INCRCOUNTER = 'increment counter';
 Blockly.Msg.CONTROL_CLEARCOUNTER = 'clear counter';
 Blockly.Msg.CONTROL_ALLATONCE = 'all at once';
 Blockly.Msg.DEFAULT_CLONE_NAME = 'name';
+Blockly.Msg.NEW_CLONE = 'New clone';
+Blockly.Msg.NEW_CLONE_TITLE = 'New clone name';
+Blockly.Msg.NEW_CLONE_MODAL_TITLE = 'New clone';
 
 // Data blocks
 Blockly.Msg.DATA_SETVARIABLETO = 'set %1 to %2';

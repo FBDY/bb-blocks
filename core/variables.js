@@ -284,6 +284,9 @@ Blockly.Variables.createVariable = function(workspace, opt_callback, opt_type) {
   } else if (opt_type == Blockly.LIST_VARIABLE_TYPE) {
     newMsg = Blockly.Msg.NEW_LIST_TITLE;
     modalTitle = Blockly.Msg.LIST_MODAL_TITLE;
+  } else if (opt_type == Blockly.CLONE_NAME_VARIABLE_TYPE) {
+    newMsg = Blockly.Msg.NEW_CLONE_TITLE;
+    modalTitle = Blockly.Msg.NEW_CLONE_MODAL_TITLE;
   } else {
     // Note: this case covers 1) scalar variables, 2) any new type of
     // variable not explicitly checked for above, and 3) a null or undefined
