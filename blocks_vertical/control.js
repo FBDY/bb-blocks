@@ -484,6 +484,31 @@ Blockly.Blocks['control_create_clone_of'] = {
   }
 };
 
+Blockly.Blocks['control_create_named_clone_of'] = {
+  /**
+   * Block for "create a clone named ... of ..."
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "id": "control_create_named_clone_of",
+      "message0": Blockly.Msg.CONTROL_CREATENAMEDCLONEOF,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "CLONE_NAME"
+        },
+        {
+          "type": "input_value",
+          "name": "CLONE_OPTION"
+        }
+      ],
+      "category": Blockly.Categories.control,
+      "extensions": ["colours_control", "shape_statement"]
+    });
+  }
+};
+
 Blockly.Blocks['control_delete_this_clone'] = {
   /**
    * Block for "delete this clone."

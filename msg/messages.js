@@ -50,6 +50,7 @@ Blockly.Msg.CONTROL_FOREACH = 'for each %1 in %2';
 Blockly.Msg.CONTROL_STARTASCLONE = 'when I start as a clone';
 Blockly.Msg.CONTROL_STARTASNAMEDCLONE = 'when I start as a clone named %1';
 Blockly.Msg.CONTROL_CREATECLONEOF = 'create clone of %1';
+Blockly.Msg.CONTROL_CREATENAMEDCLONEOF = 'create clone named %1 of %2';
 Blockly.Msg.CONTROL_CREATECLONEOF_MYSELF = 'myself';
 Blockly.Msg.CONTROL_DELETETHISCLONE = 'delete this clone';
 Blockly.Msg.CONTROL_COUNTER = 'counter';
