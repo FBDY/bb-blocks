@@ -386,9 +386,35 @@ Blockly.Variables.nameValidator_ = function(type, text, workspace, additionalVar
   } else if (type == Blockly.LIST_VARIABLE_TYPE) {
     return Blockly.Variables.validateScalarVarOrListName_(text, workspace, additionalVars, false, type,
         Blockly.Msg.LIST_ALREADY_EXISTS);
+  } else if (type == Blockly.CLONE_NAME_VARIABLE_TYPE) {
+    return Blockly.Variables.validateCloneName_(text, workspace);
   } else {
     return Blockly.Variables.validateScalarVarOrListName_(text, workspace, additionalVars, isCloud, type,
         Blockly.Msg.VARIABLE_ALREADY_EXISTS);
+  }
+};
+
+/**
+ * Validate the given name as a clone name.
+ * @param {string} name The name to validate
+ * @param {!Blockly.Workspace} workspace The workspace the name should be validated
+ *     against.
+ * @return {string} The validated name, or null if invalid.
+ * @private
+ */
+Blockly.Variables.validateCloneName_ = function(name, workspace) {
+  if (!name) { // no name was provided or the user cancelled the prompt
+    return null;
+  }
+  var variable = workspace.getVariable(name, Blockly.CLONE_NAME_VARIABLE_TYPE);
+  if (variable) {
+    // Return null to signal to the calling function that we do not want to create
+    // a new variable since one already exists.
+    return null;
+  } else {
+    // The name provided is actually a new name, so the calling
+    // function should go ahead and create it as a new variable.
+    return name;
   }
 };
 
