@@ -275,6 +275,11 @@ Blockly.Variables.realizePotentialVar = function(varName, varType, potentialVarW
  *     like 'string' or 'list'.
  */
 Blockly.Variables.createVariable = function(workspace, opt_callback, opt_type) {
+  console.log(">>>>>>>>>>Blockly.Variables.createVariable()")
+  console.log(workspace);
+  console.log(opt_callback);
+  console.log(opt_type);
+  console.log("<<<<<<<<<<Blockly.Variables.createVariable()")
   // Decide on a modal message based on the opt_type. If opt_type was not
   // provided, default to the original message for scalar variables.
   var newMsg, modalTitle;
@@ -302,6 +307,7 @@ Blockly.Variables.createVariable = function(workspace, opt_callback, opt_type) {
   // Prompt the user to enter a name for the variable
   Blockly.prompt(newMsg, '',
       function(text, additionalVars, variableOptions) {
+        console.log(">>>>promptfun");
         variableOptions = variableOptions || {};
         var scope = variableOptions.scope;
         var isLocal = (scope === 'local') || false;
