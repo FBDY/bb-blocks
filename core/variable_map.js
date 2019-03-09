@@ -180,6 +180,7 @@ Blockly.VariableMap.prototype.renameVariableWithConflict_ = function(variable,
  */
 Blockly.VariableMap.prototype.createVariable = function(name,
     opt_type, opt_id, opt_isLocal, opt_isCloud) {
+  console.trace();
   var variable = this.getVariable(name, opt_type);
   if (variable) {
     if (opt_id && variable.getId() != opt_id) {
@@ -208,10 +209,13 @@ Blockly.VariableMap.prototype.createVariable = function(name,
   // If opt_type is not a key, create a new list.
   if (!this.variableMap_[opt_type]) {
     this.variableMap_[opt_type] = [variable];
+    console.log("IFFFF");
   } else {
   // Else append the variable to the preexisting list.
     this.variableMap_[opt_type].push(variable);
+    console.log("ELSEEEE");
   }
+  console.log(variable);
   return variable;
 };
 

@@ -332,7 +332,9 @@ Blockly.Variables.createVariable = function(workspace, opt_callback, opt_type) {
                 opt_type, workspace, false);
           }
           if (!variable) {
+            console.log("workspace.createVariable called");
             variable = workspace.createVariable(validatedText, opt_type, null, isLocal, isCloud);
+            console.log("workspace.createVariable returned");
           }
 
           var flyout = workspace.isFlyout ? workspace : workspace.getFlyout();
@@ -350,6 +352,7 @@ Blockly.Variables.createVariable = function(workspace, opt_callback, opt_type) {
             opt_callback(null);
           }
         }
+        console.log("<<<<<promptfun");
       }, modalTitle, opt_type);
 };
 
