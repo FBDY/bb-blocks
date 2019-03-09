@@ -200,8 +200,6 @@ Blockly.FieldVariable.prototype.getVariable = function() {
  *     variable.
  */
 Blockly.FieldVariable.prototype.setValue = function(id) {
-  console.log(this);
-  console.log(id);
   var workspace = this.sourceBlock_.workspace;
   var variable = Blockly.Variables.getVariable(workspace, id);
 
@@ -361,7 +359,6 @@ Blockly.FieldVariable.prototype.onItemSelected = function(menu, menuItem) {
       workspace.deleteVariableById(this.variable_.getId());
       return;
     } else if (id == Blockly.NEW_BROADCAST_MESSAGE_ID) {
-      console.log(this);
       var thisField = this;
       var updateField = function(varId) {
         if (varId) {
@@ -373,7 +370,6 @@ Blockly.FieldVariable.prototype.onItemSelected = function(menu, menuItem) {
       return;
     } else if (id == Blockly.NEW_CLONE_ID) {
       // TODO: Refactor (merge with the code above)
-      console.log(this);
       var thisField = this;
       var updateField = function(varId) {
         if (varId) {

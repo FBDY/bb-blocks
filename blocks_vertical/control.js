@@ -409,9 +409,7 @@ Blockly.Blocks['control_clone_name_menu'] = {
           "type": "field_variable",
           "name": "CLONE_NAME_OPTION",
           "variableTypes": [Blockly.CLONE_NAME_VARIABLE_TYPE],
-          "variable": Blockly.Msg.DEFAULT_CLONE_NAME,
-          "options": [
-          ]
+          "variable": Blockly.Msg.DEFAULT_CLONE_NAME
         }
       ],
       "colour": Blockly.Colours.control.secondary,
