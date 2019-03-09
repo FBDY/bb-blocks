@@ -1167,7 +1167,7 @@ Blockly.WorkspaceSvg.prototype.deleteVariableById = function(id) {
  */
 Blockly.WorkspaceSvg.prototype.createVariable = function(name, opt_type, opt_id,
     opt_isLocal, opt_isCloud) {
-  console.log("Blockly.WorkspaceSvg.prototype.createVariable");
+  console.trace();
   console.log(this);
   console.log(Blockly.WorkspaceSvg.superClass_);
   var variableInMap = (this.getVariable(name, opt_type) != null);
