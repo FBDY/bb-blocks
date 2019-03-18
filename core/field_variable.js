@@ -106,12 +106,23 @@ Blockly.FieldVariable.prototype.initModel = function() {
     return; // Initialization already happened.
   }
   this.workspace_ = this.sourceBlock_.workspace;
+
   // Initialize this field if it's in a broadcast block in the flyout
-  var variable = this.initFlyoutBroadcast_(this.workspace_);
+  // var variable = this.initFlyoutBroadcast_(this.workspace_);
+  // if (!variable) {
+  //   var variable = Blockly.Variables.getOrCreateVariablePackage(
+  //       this.workspace_, null, this.defaultVariableName, this.defaultType_);
+  // }
+
+  // Initialize this field if it's in a named clone block in the flyout
+  console.log("AAAAAAAAAAAAAAAAAAAAA");
+  var variable = this.initFlyoutClone_(this.workspace_);
   if (!variable) {
+    console.log("BBBBBBBBBBBBBBBBBBB");
     var variable = Blockly.Variables.getOrCreateVariablePackage(
         this.workspace_, null, this.defaultVariableName, this.defaultType_);
   }
+  console.log("CCCCCCCCCCCCCCCCCCCC");
   // Don't fire a change event for this setValue.  It would have null as the
   // old value, which is not valid.
   Blockly.Events.disable();
