@@ -122,6 +122,21 @@ Blockly.FieldVariable.prototype.initModel = function() {
   }
 };
 
+/*
+ * XXX: This is adapted from the code related to broadcast messages.
+ * I'm still trying to debug the dropdown selection problems and this seemed
+ * like a good bet, but I'm not sure if it's correct or anything.
+ */
+Blockly.FieldVariable.prototype.initFlyoutClone_ = function(workspace) {
+  var cloneNameType = Blockly.CLONE_NAME_VARIABLE_TYPE;
+  var cloneNameVars = workspace.getVariablesOfType(cloneNameType);
+  if(workspace.isFlyout && this.defaultType_ == cloneNameType &&
+      cloneNameVars.length != 0) {
+    cloneNameVars.sort(Blockly.VariableModel.compareByName);
+    return cloneNameVars[0];
+  }
+};
+
 /**
  * Initialize broadcast blocks in the flyout.
  * Implicit deletion of broadcast messages from the scratch vm may cause
