@@ -305,10 +305,23 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '<block type="control_repeat_until" id="control_repeat_until"></block>' +
     '<block type="control_stop" id="control_stop"></block>' +
     '<block type="control_start_as_clone" id="control_start_as_clone"></block>' +
+    '<block type="control_start_as_named_clone">' +
+        '<value name="CLONE_NAME">' +
+            '<shadow type="control_clone_name_menu"/>' +
+        '</value>' +
+    '</block>' +
     '<block type="control_create_clone_of" id="control_create_clone_of">' +
       '<value name="CLONE_OPTION">' +
         '<shadow type="control_create_clone_of_menu"></shadow>' +
       '</value>' +
+    '</block>' +
+    '<block type="control_create_named_clone_of">' +
+        '<value name="CLONE_NAME">' +
+            '<shadow type="control_clone_name_menu"/>' +
+        '</value>' +
+        '<value name="CLONE_OPTION">' +
+            '<shadow type="control_create_clone_of_menu"/>' +
+        '</value>' +
     '</block>' +
     '<block type="control_delete_this_clone" id="control_delete_this_clone"></block>' +
   '</category>' +

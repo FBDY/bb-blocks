@@ -334,12 +334,29 @@ Blockly.DELETE_VARIABLE_ID = 'DELETE_VARIABLE_ID';
 Blockly.NEW_BROADCAST_MESSAGE_ID = 'NEW_BROADCAST_MESSAGE_ID';
 
 /**
+ * String for use in the dropdown created in field_variable,
+ * specifically for named clones.
+ * This string indicates that this option in the dropdown is 'New clone...'
+ * and if selected, should trigger the prompt to create a new named clone.
+ * @const {string}
+ */
+Blockly.NEW_CLONE_ID = 'NEW_CLONE_ID';
+
+/**
  * String representing the variable type of broadcast message blocks.
  * This string, for use in differentiating between types of variables,
  * indicates that the current variable is a broadcast message.
  * @const {string}
  */
 Blockly.BROADCAST_MESSAGE_VARIABLE_TYPE = 'broadcast_msg';
+
+/**
+ * String representing the variable type of named clones.
+ * This string, for use in differentiating between types of variables,
+ * indicates that the current variable is a named clone.
+ * @const {string}
+ */
+Blockly.CLONE_NAME_VARIABLE_TYPE = 'clone_name';
 
 /**
  * String representing the variable type of list blocks.

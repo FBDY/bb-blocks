@@ -396,6 +396,51 @@ Blockly.Blocks['control_start_as_clone'] = {
   }
 };
 
+Blockly.Blocks['control_clone_name_menu'] = {
+  /**
+   * Clone name selection menu.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "CLONE_NAME_OPTION",
+          "variableTypes": [Blockly.CLONE_NAME_VARIABLE_TYPE],
+          "variable": Blockly.Msg.DEFAULT_CLONE_NAME
+        }
+      ],
+      "colour": Blockly.Colours.control.secondary,
+      "colourSecondary": Blockly.Colours.control.secondary,
+      "colourTertiary": Blockly.Colours.control.tertiary,
+      "extensions": ["output_string"]
+    });
+  }
+};
+
+Blockly.Blocks['control_start_as_named_clone'] = {
+  /**
+   * Block for "when I start as a named clone" hat.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "id": "control_start_as_named_clone",
+      "message0": Blockly.Msg.CONTROL_STARTASNAMEDCLONE,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "CLONE_NAME"
+        }
+      ],
+      "category": Blockly.Categories.control,
+      "extensions": ["colours_control", "shape_hat"]
+    });
+  }
+};
+
 Blockly.Blocks['control_create_clone_of_menu'] = {
   /**
    * Create-clone drop-down menu.
@@ -428,6 +473,31 @@ Blockly.Blocks['control_create_clone_of'] = {
       "id": "control_start_as_clone",
       "message0": Blockly.Msg.CONTROL_CREATECLONEOF,
       "args0": [
+        {
+          "type": "input_value",
+          "name": "CLONE_OPTION"
+        }
+      ],
+      "category": Blockly.Categories.control,
+      "extensions": ["colours_control", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['control_create_named_clone_of'] = {
+  /**
+   * Block for "create a clone named ... of ..."
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "id": "control_create_named_clone_of",
+      "message0": Blockly.Msg.CONTROL_CREATENAMEDCLONEOF,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "CLONE_NAME"
+        },
         {
           "type": "input_value",
           "name": "CLONE_OPTION"
