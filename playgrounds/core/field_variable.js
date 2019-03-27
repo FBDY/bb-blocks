@@ -312,6 +312,9 @@ Blockly.FieldVariable.dropdownCreate = function() {
   if (this.defaultType_ == Blockly.BROADCAST_MESSAGE_VARIABLE_TYPE) {
     options.unshift(
         [Blockly.Msg.NEW_BROADCAST_MESSAGE, Blockly.NEW_BROADCAST_MESSAGE_ID]);
+  } else if (this.defaultType_ == Blockly.CLONE_NAME_VARIABLE_TYPE) {
+    options.unshift(
+        [Blockly.Msg.NEW_CLONE, Blockly.NEW_CLONE_ID]);
   } else {
     // Scalar variables and lists have the same backing action, but the option
     // text is different.
@@ -364,6 +367,17 @@ Blockly.FieldVariable.prototype.onItemSelected = function(menu, menuItem) {
       };
       Blockly.Variables.createVariable(workspace, updateField,
           Blockly.BROADCAST_MESSAGE_VARIABLE_TYPE);
+      return;
+    } else if (id == Blockly.NEW_CLONE_ID) {
+      // TODO: Refactor (merge with the code above)
+      var thisField = this;
+      var updateField = function(varId) {
+        if (varId) {
+          thisField.setValue(varId);
+        }
+      };
+      Blockly.Variables.createVariable(workspace, updateField,
+          Blockly.CLONE_NAME_VARIABLE_TYPE);
       return;
     }
 
