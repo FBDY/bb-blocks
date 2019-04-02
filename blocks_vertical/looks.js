@@ -272,6 +272,15 @@ Blockly.Blocks['looks_setsizeto'] = {
         {
           "type": "input_value",
           "name": "SIZE"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "",
+          "options": [
+            [Blockly.Msg.LOOKS_SETSIZETO_SIZE, 'size'],
+            [Blockly.Msg.LOOKS_SETSIZETO_STRETCH_X, 'stretch x'],
+            [Blockly.Msg.LOOKS_SETSIZETO_STRETCH_Y, 'stretch y']
+          ]
         }
       ],
       "category": Blockly.Categories.looks,
