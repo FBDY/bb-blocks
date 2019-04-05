@@ -310,6 +310,31 @@ Blockly.Blocks['event_sendmsg'] = {
   }
 };
 
+Blockly.Blocks['event_sendmsgandwait'] = {
+  /**
+   * Block to send a message to a sprite.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "id": "event_sendmsgandwait",
+      "message0": Blockly.Msg.EVENT_SENDMSGANDWAIT,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "BROADCAST_INPUT"
+        },
+        {
+          "type": "input_value",
+          "name": "SENDMSG_TARGET"
+        }
+      ],
+      "category": Blockly.Categories.event,
+      "extensions": ["colours_event", "shape_statement"]
+    });
+  }
+};
+
 Blockly.Blocks['event_whenkeypressed'] = {
   /**
    * Block to send a broadcast.
