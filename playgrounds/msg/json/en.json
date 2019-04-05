@@ -56,6 +56,7 @@
     "EVENT_BROADCAST": "broadcast %1",
     "EVENT_BROADCASTANDWAIT": "broadcast %1 and wait",
     "EVENT_SENDMSG": "send %1 to %2",
+    "EVENT_SENDMSGANDWAIT": "send %1 to %2 and wait",
     "EVENT_WHENKEYPRESSED": "when %1 key pressed",
     "EVENT_WHENKEYPRESSED_SPACE": "space",
     "EVENT_WHENKEYPRESSED_LEFT": "left arrow",
