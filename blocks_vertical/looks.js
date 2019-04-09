@@ -250,6 +250,15 @@ Blockly.Blocks['looks_changesizeby'] = {
       "message0": Blockly.Msg.LOOKS_CHANGESIZEBY,
       "args0": [
         {
+          "type": "field_dropdown",
+          "name": "TYPE",
+          "options": [
+            [Blockly.Msg.LOOKS_SETSIZETO_SIZE, 'size'],
+            [Blockly.Msg.LOOKS_SETSIZETO_STRETCH_X, 'stretch x'],
+            [Blockly.Msg.LOOKS_SETSIZETO_STRETCH_Y, 'stretch y']
+          ]
+        },
+        {
           "type": "input_value",
           "name": "CHANGE"
         }

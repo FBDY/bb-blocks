@@ -82,7 +82,7 @@
     "LOOKS_CHANGEEFFECTBY": "change %1 effect by %2",
     "LOOKS_SETEFFECTTO": "set %1 effect to %2",
     "LOOKS_CLEARGRAPHICEFFECTS": "clear graphic effects",
-    "LOOKS_CHANGESIZEBY": "change size by %1",
+    "LOOKS_CHANGESIZEBY": "change %1 by %2",
     "LOOKS_SETSIZETO": "set size to %1 %",
     "LOOKS_SIZE": "size",
     "LOOKS_CHANGESTRETCHBY": "change stretch by %1",

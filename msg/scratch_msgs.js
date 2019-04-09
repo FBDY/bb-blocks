@@ -3803,7 +3803,7 @@ Blockly.ScratchMsgs.locales["en"] =
     "LOOKS_CHANGEEFFECTBY": "change %1 effect by %2",
     "LOOKS_SETEFFECTTO": "set %1 effect to %2",
     "LOOKS_CLEARGRAPHICEFFECTS": "clear graphic effects",
-    "LOOKS_CHANGESIZEBY": "change size by %1",
+    "LOOKS_CHANGESIZEBY": "change %1 by %2",
     "LOOKS_SETSIZETO": "set %1 to %2 %",
     "LOOKS_SETSIZETO_SIZE": "size",
     "LOOKS_SETSIZETO_STRETCH_X": "stretch x",
