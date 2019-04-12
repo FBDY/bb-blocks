@@ -89,6 +89,9 @@ Blockly.DataCategory = function(workspace) {
     Blockly.DataCategory.addHideList(xmlList, firstVariable);
   }
 
+  // TODO: Implement blocks for DICT type and add them here.
+  Blockly.DataCategory.addCreateButton(xmlList, workspace, 'DICT');
+
   return xmlList;
 };
 
@@ -395,6 +398,12 @@ Blockly.DataCategory.addCreateButton = function(xmlList, workspace, type) {
     callback = function(button) {
       Blockly.Variables.createVariable(button.getTargetWorkspace(), null,
           Blockly.LIST_VARIABLE_TYPE);};
+  } else if (type === 'DICT') {
+    msg = Blockly.Msg.NEW_DICT;
+    callbackKey = 'CREATE_DICT';
+    callback = function(button) {
+      Blockly.Variables.createVariable(button.getTargetWorkspace(), null,
+          Blockly.DICT_VARIABLE_TYPE);};
   }
   button.setAttribute('text', msg);
   button.setAttribute('callbackKey', callbackKey);

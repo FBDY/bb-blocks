@@ -355,6 +355,17 @@ Blockly.Msg.DEFAULT_LIST_ITEM = 'thing';
 Blockly.Msg.DELETE_LIST = 'Delete the "%1" list';
 Blockly.Msg.RENAME_LIST = 'Rename list';
 
+// Dictionaries
+Blockly.Msg.NEW_DICT = 'Make a Dictionary';
+Blockly.Msg.NEW_DICT_TITLE = 'New dictionary name:';
+Blockly.Msg.DICT_MODAL_TITLE = 'New Dictionary';
+Blockly.Msg.DICT_ALREADY_EXISTS = 'A dictionary named "%1" already exists.';
+Blockly.Msg.RENAME_DICT_TITLE = 'Rename all "%1" dictionaries to:';
+Blockly.Msg.RENAME_DICT_MODAL_TITLE = 'Rename Dictionary';
+Blockly.Msg.DEFAULT_DICT_ITEM = 'thing'; // TODO: default key-value pair?
+Blockly.Msg.DELETE_DICT = 'Delete the "%1" dictionary';
+Blockly.Msg.RENAME_DICT = 'Rename dictionary';
+
 // Broadcast Messages
 // @todo Remove these once fully managed by Scratch VM / Scratch GUI
 Blockly.Msg.NEW_BROADCAST_MESSAGE = 'New message';
