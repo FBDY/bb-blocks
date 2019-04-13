@@ -265,6 +265,7 @@ Blockly.Categories = {
   "pen": "pen",
   "data": "data",
   "dataLists": "data-lists",
+  "dataDicts": "data-dicts",
   "event": "events",
   "control": "control",
   "sensing": "sensing",

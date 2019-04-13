@@ -89,8 +89,33 @@ Blockly.DataCategory = function(workspace) {
     Blockly.DataCategory.addHideList(xmlList, firstVariable);
   }
 
-  // TODO: Implement blocks for DICT type and add them here.
   Blockly.DataCategory.addCreateButton(xmlList, workspace, 'DICT');
+  variableModelList = workspace.getVariablesOfType(Blockly.DICT_VARIABLE_TYPE);
+  variableModelList.sort(Blockly.VariableModel.compareByName);
+  for (var i = 0; i < variableModelList.length; i++) {
+    Blockly.DataCategory.addDataDict(xmlList, variableModelList[i]);
+  }
+
+  // TODO
+  // if (variableModelList.length > 0) {
+  //   xmlList[xmlList.length - 1].setAttribute('gap', 24);
+  //   var firstVariable = variableModelList[0];
+
+  //   Blockly.DataCategory.addAddToList(xmlList, firstVariable);
+  //   Blockly.DataCategory.addSep(xmlList);
+  //   Blockly.DataCategory.addDeleteOfList(xmlList, firstVariable);
+  //   Blockly.DataCategory.addDeleteAllOfList(xmlList, firstVariable);
+  //   Blockly.DataCategory.addInsertAtList(xmlList, firstVariable);
+  //   Blockly.DataCategory.addReplaceItemOfList(xmlList, firstVariable);
+  //   Blockly.DataCategory.addSep(xmlList);
+  //   Blockly.DataCategory.addItemOfList(xmlList, firstVariable);
+  //   Blockly.DataCategory.addItemNumberOfList(xmlList, firstVariable);
+  //   Blockly.DataCategory.addLengthOfList(xmlList, firstVariable);
+  //   Blockly.DataCategory.addListContainsItem(xmlList, firstVariable);
+  //   Blockly.DataCategory.addSep(xmlList);
+  //   Blockly.DataCategory.addShowList(xmlList, firstVariable);
+  //   Blockly.DataCategory.addHideList(xmlList, firstVariable);
+  // }
 
   return xmlList;
 };
@@ -375,6 +400,20 @@ Blockly.DataCategory.addHideList = function(xmlList, variable) {
   //   <field name="LIST" variabletype="list" id="">variablename</field>
   // </block>
   Blockly.DataCategory.addBlock(xmlList, variable, 'data_hidelist', 'LIST');
+};
+
+/**
+ * Construct and add a data_dictcontents block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addDataDict = function(xmlList, variable) {
+  // <block id="variableId" type="data_dictcontents">
+  //    <field name="DICT">variablename</field>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_dictcontents', 'DICT');
+  // In the flyout, this ID must match variable ID for monitor syncing reasons
+  xmlList[xmlList.length - 1].setAttribute('id', variable.getId());
 };
 
 /**
