@@ -96,26 +96,25 @@ Blockly.DataCategory = function(workspace) {
     Blockly.DataCategory.addDataDict(xmlList, variableModelList[i]);
   }
 
-  // TODO
-  // if (variableModelList.length > 0) {
-  //   xmlList[xmlList.length - 1].setAttribute('gap', 24);
-  //   var firstVariable = variableModelList[0];
+  if (variableModelList.length > 0) {
+    xmlList[xmlList.length - 1].setAttribute('gap', 24);
+    var firstVariable = variableModelList[0];
 
-  //   Blockly.DataCategory.addAddToList(xmlList, firstVariable);
-  //   Blockly.DataCategory.addSep(xmlList);
+    Blockly.DataCategory.addAddToDict(xmlList, firstVariable);
+    Blockly.DataCategory.addSep(xmlList);
   //   Blockly.DataCategory.addDeleteOfList(xmlList, firstVariable);
   //   Blockly.DataCategory.addDeleteAllOfList(xmlList, firstVariable);
   //   Blockly.DataCategory.addInsertAtList(xmlList, firstVariable);
   //   Blockly.DataCategory.addReplaceItemOfList(xmlList, firstVariable);
-  //   Blockly.DataCategory.addSep(xmlList);
-  //   Blockly.DataCategory.addItemOfList(xmlList, firstVariable);
+    Blockly.DataCategory.addSep(xmlList);
+    Blockly.DataCategory.addItemOfDict(xmlList, firstVariable);
   //   Blockly.DataCategory.addItemNumberOfList(xmlList, firstVariable);
   //   Blockly.DataCategory.addLengthOfList(xmlList, firstVariable);
   //   Blockly.DataCategory.addListContainsItem(xmlList, firstVariable);
   //   Blockly.DataCategory.addSep(xmlList);
   //   Blockly.DataCategory.addShowList(xmlList, firstVariable);
   //   Blockly.DataCategory.addHideList(xmlList, firstVariable);
-  // }
+  }
 
   return xmlList;
 };
@@ -414,6 +413,47 @@ Blockly.DataCategory.addDataDict = function(xmlList, variable) {
   Blockly.DataCategory.addBlock(xmlList, variable, 'data_dictcontents', 'DICT');
   // In the flyout, this ID must match variable ID for monitor syncing reasons
   xmlList[xmlList.length - 1].setAttribute('id', variable.getId());
+};
+
+/**
+ * Construct and add a data_addtodict block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addAddToDict = function(xmlList, variable) {
+  // <block type="data_addtodict">
+  //   <field name="DICT" variabletype="dict" id="">variablename</field>
+  //   <value name="ITEM">
+  //     <shadow type="text">
+  //       <field name="TEXT">thing</field>
+  //     </shadow>
+  //   </value>
+  //   <value name="KEY">
+  //     <shadow type="text">
+  //       <field name="TEXT">key</field>
+  //     </shadow>
+  //   </value>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_addtodict', 'DICT',
+      ['ITEM', 'text', Blockly.Msg.DEFAULT_DICT_ITEM], ['KEY', 'text', Blockly.Msg.DEFAULT_DICT_KEY]);
+};
+
+/**
+ * Construct and add a data_itemofdict block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addItemOfDict = function(xmlList, variable) {
+  // <block type="data_itemofdict">
+  //   <field name="DICT" variabletype="dict" id="">variablename</field>
+  //   <value name="KEY">
+  //     <shadow type="text">
+  //       <field name="TEXT">key</field>
+  //     </shadow>
+  //   </value>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_itemofdict', 'DICT',
+      ['KEY', 'text', Blockly.Msg.DEFAULT_DICT_KEY]);
 };
 
 /**
