@@ -111,9 +111,9 @@ Blockly.DataCategory = function(workspace) {
     // Blockly.DataCategory.addItemNumberOfList(xmlList, firstVariable);
     // Blockly.DataCategory.addLengthOfList(xmlList, firstVariable);
     // Blockly.DataCategory.addListContainsItem(xmlList, firstVariable);
-    // Blockly.DataCategory.addSep(xmlList);
-    // Blockly.DataCategory.addShowList(xmlList, firstVariable);
-    // Blockly.DataCategory.addHideList(xmlList, firstVariable);
+    Blockly.DataCategory.addSep(xmlList);
+    Blockly.DataCategory.addShowDict(xmlList, firstVariable);
+    Blockly.DataCategory.addHideDict(xmlList, firstVariable);
   }
 
   return xmlList;
@@ -454,6 +454,30 @@ Blockly.DataCategory.addItemOfDict = function(xmlList, variable) {
   // </block>
   Blockly.DataCategory.addBlock(xmlList, variable, 'data_itemofdict', 'DICT',
       ['KEY', 'text', Blockly.Msg.DEFAULT_DICT_KEY]);
+};
+
+/**
+ * Construct and add a data_showdict block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addShowDict = function(xmlList, variable) {
+  // <block type="data_showdict">
+  //   <field name="DICT" variabletype="dict" id="">variablename</field>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_showdict', 'DICT');
+};
+
+/**
+ * Construct and add a data_hidedict block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addHideDict = function(xmlList, variable) {
+  // <block type="data_hidedict">
+  //   <field name="DICT" variabletype="dict" id="">variablename</field>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_hidedict', 'DICT');
 };
 
 /**

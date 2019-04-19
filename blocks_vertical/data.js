@@ -578,6 +578,48 @@ Blockly.Blocks['data_itemofdict'] = {
   }
 };
 
+Blockly.Blocks['data_showdict'] = {
+  /**
+   * Block to show a dictionary.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.DATA_SHOWDICT,
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "DICT",
+          "variableTypes": [Blockly.DICT_VARIABLE_TYPE]
+        }
+      ],
+      "category": Blockly.Categories.dataDicts,
+      "extensions": ["colours_data_dicts", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['data_hidedict'] = {
+  /**
+   * Block to hide a dictionary.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.DATA_HIDEDICT,
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "DICT",
+          "variableTypes": [Blockly.DICT_VARIABLE_TYPE]
+        }
+      ],
+      "category": Blockly.Categories.dataDicts,
+      "extensions": ["colours_data_dicts", "shape_statement"]
+    });
+  }
+};
+
 /**
  * Mixin to add a context menu for a data_variable block.  It adds one item for
  * each variable defined on the workspace.
