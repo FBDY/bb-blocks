@@ -516,6 +516,9 @@ Blockly.Variables.renameVariable = function(workspace, variable,
   if (varType == Blockly.LIST_VARIABLE_TYPE) {
     promptMsg = Blockly.Msg.RENAME_LIST_TITLE;
     modalTitle = Blockly.Msg.RENAME_LIST_MODAL_TITLE;
+  } else if (varType == Blockly.DICT_VARIABLE_TYPE) {
+    promptMsg = Blockly.Msg.RENAME_DICT_TITLE;
+    modalTitle = Blockly.Msg.RENAME_DICT_MODAL_TITLE;
   } else {
     // Default for all other types of variables
     promptMsg = Blockly.Msg.RENAME_VARIABLE_TITLE;
