@@ -576,6 +576,27 @@ Blockly.Blocks['data_deleteofdict'] = {
   }
 };
 
+Blockly.Blocks['data_deleteallofdict'] = {
+  /**
+   * Block to delete all items from dictionary.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.DATA_DELETEALLOFDICT,
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "DICT",
+          "variableTypes": [Blockly.DICT_VARIABLE_TYPE]
+        }
+      ],
+      "category": Blockly.Categories.dataDicts,
+      "extensions": ["colours_data_dicts", "shape_statement"]
+    });
+  }
+};
+
 Blockly.Blocks['data_itemofdict'] = {
   /**
    * Block for reporting item of dictionary.
