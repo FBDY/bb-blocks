@@ -551,6 +551,31 @@ Blockly.Blocks['data_addtodict'] = {
   }
 };
 
+Blockly.Blocks['data_deleteofdict'] = {
+  /**
+   * Block to delete item from dictionary.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.DATA_DELETEOFDICT,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "KEY"
+        },
+        {
+          "type": "field_variable",
+          "name": "DICT",
+          "variableTypes": [Blockly.DICT_VARIABLE_TYPE]
+        }
+      ],
+      "category": Blockly.Categories.dataDicts,
+      "extensions": ["colours_data_dicts", "shape_statement"]
+    });
+  }
+};
+
 Blockly.Blocks['data_itemofdict'] = {
   /**
    * Block for reporting item of dictionary.

@@ -102,7 +102,7 @@ Blockly.DataCategory = function(workspace) {
 
     Blockly.DataCategory.addAddToDict(xmlList, firstVariable);
     Blockly.DataCategory.addSep(xmlList);
-    // Blockly.DataCategory.addDeleteOfList(xmlList, firstVariable);
+    Blockly.DataCategory.addDeleteOfDict(xmlList, firstVariable);
     // Blockly.DataCategory.addDeleteAllOfList(xmlList, firstVariable);
     // Blockly.DataCategory.addInsertAtList(xmlList, firstVariable);
     // Blockly.DataCategory.addReplaceItemOfList(xmlList, firstVariable);
@@ -453,6 +453,24 @@ Blockly.DataCategory.addItemOfDict = function(xmlList, variable) {
   //   </value>
   // </block>
   Blockly.DataCategory.addBlock(xmlList, variable, 'data_itemofdict', 'DICT',
+      ['KEY', 'text', Blockly.Msg.DEFAULT_DICT_KEY]);
+};
+
+/**
+ * Construct and add a data_deleteofdict block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addDeleteOfDict = function(xmlList, variable) {
+  // <block type="data_deleteofdict">
+  //   <field name="DICT" variabletype="dict" id="">variablename</field>
+  //   <value name="KEY">
+  //     <shadow type="text">
+  //       <field name="TEXT">key</field>
+  //     </shadow>
+  //   </value>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_deleteofdict', 'DICT',
       ['KEY', 'text', Blockly.Msg.DEFAULT_DICT_KEY]);
 };
 

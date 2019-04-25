@@ -45,6 +45,7 @@
     "DATA_INDEX_LAST": "last",
     "DATA_INDEX_RANDOM": "random",
     "DATA_ADDTODICT": "add %1 with key %2 to %3",
+    "DATA_DELETEOFDICT": "delete %1 of %2",
     "DATA_ITEMOFDICT": "item with key %1 of %2",
     "DATA_SHOWDICT": "show dictionary %1",
     "DATA_HIDEDICT": "hide dictionary %1",

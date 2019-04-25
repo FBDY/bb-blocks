@@ -82,6 +82,7 @@ Blockly.Msg.DATA_INDEX_ALL = 'all';
 Blockly.Msg.DATA_INDEX_LAST = 'last';
 Blockly.Msg.DATA_INDEX_RANDOM = 'random';
 Blockly.Msg.DATA_ADDTODICT = 'add %1 with key %2 to %3';
+Blockly.Msg.DATA_DELETEOFDICT = 'delete %1 of %2';
 Blockly.Msg.DATA_ITEMOFDICT = 'item with key %1 of %2';
 Blockly.Msg.DATA_SHOWDICT = 'show dictionary %1';
 Blockly.Msg.DATA_HIDEDICT = 'hide dictionary %1';
