@@ -666,6 +666,31 @@ Blockly.Blocks['data_showdict'] = {
   }
 };
 
+Blockly.Blocks['data_dictcontainskey'] = {
+  /**
+   * Block to report whether dictionary contains key.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.DATA_DICTCONTAINSKEY,
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "DICT",
+          "variableTypes": [Blockly.DICT_VARIABLE_TYPE]
+        },
+        {
+          "type": "input_value",
+          "name": "KEY"
+        }
+      ],
+      "category": Blockly.Categories.dataDicts,
+      "extensions": ["colours_data_dicts", "output_boolean"]
+    });
+  }
+};
+
 Blockly.Blocks['data_hidedict'] = {
   /**
    * Block to hide a dictionary.

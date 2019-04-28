@@ -107,7 +107,7 @@ Blockly.DataCategory = function(workspace) {
     Blockly.DataCategory.addSep(xmlList);
     Blockly.DataCategory.addItemOfDict(xmlList, firstVariable);
     Blockly.DataCategory.addLengthOfDict(xmlList, firstVariable);
-    // Blockly.DataCategory.addListContainsItem(xmlList, firstVariable);
+    Blockly.DataCategory.addDictContainsKey(xmlList, firstVariable);
     Blockly.DataCategory.addSep(xmlList);
     Blockly.DataCategory.addShowDict(xmlList, firstVariable);
     Blockly.DataCategory.addHideDict(xmlList, firstVariable);
@@ -494,6 +494,24 @@ Blockly.DataCategory.addLengthOfDict = function(xmlList, variable) {
   //   <field name="DICT" variabletype="dict" id="">variablename</field>
   // </block>
   Blockly.DataCategory.addBlock(xmlList, variable, 'data_lengthofdict', 'DICT');
+};
+
+/**
+ * Construct and add a data_dictcontainskey block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addDictContainsKey = function(xmlList, variable) {
+  // <block type="data_dictcontainskey">
+  //   <field name="DICT" variabletype="dict" id="">variablename</field>
+  //   <value name="KEY">
+  //     <shadow type="text">
+  //       <field name="TEXT">key</field>
+  //     </shadow>
+  //   </value>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_dictcontainskey',
+      'DICT', ['KEY', 'text', Blockly.Msg.DEFAULT_DICT_KEY]);
 };
 
 /**
