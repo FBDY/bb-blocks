@@ -826,11 +826,6 @@ Blockly.Extensions.registerMixin('contextMenu_getListBlock',
     Blockly.Constants.Data.CUSTOM_CONTEXT_MENU_GET_LIST_MIXIN);
 
 /**
- * XXX: This is copied from the mixin for the list context menu.
- * I've modified it without paying much attention so beware.
- * TODO: Inspect this in detail.
- * Make sure the stuff about variable renaming, deletion etc. work properly.
- *
  * Mixin to add a context menu for a data_dictcontents block. It adds one item for
  * each dictionary defined on the workspace.
  * @mixin
