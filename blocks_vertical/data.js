@@ -624,6 +624,27 @@ Blockly.Blocks['data_itemofdict'] = {
   }
 };
 
+Blockly.Blocks['data_lengthofdict'] = {
+  /**
+   * Block for reporting length of (number of items in) dictionary.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.DATA_LENGTHOFDICT,
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "DICT",
+          "variableTypes": [Blockly.DICT_VARIABLE_TYPE]
+        }
+      ],
+      "category": Blockly.Categories.dataDicts,
+      "extensions": ["colours_data_dicts", "output_number"]
+    });
+  }
+};
+
 Blockly.Blocks['data_showdict'] = {
   /**
    * Block to show a dictionary.

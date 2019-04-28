@@ -54,6 +54,7 @@ Blockly.Msg["DATA_ADDTODICT"] = "add %1 with key %2 to %3";
 Blockly.Msg["DATA_DELETEOFDICT"] = "delete %1 of %2";
 Blockly.Msg["DATA_DELETEALLOFDICT"] = "delete all of %1";
 Blockly.Msg["DATA_ITEMOFDICT"] = "item with key %1 of %2";
+Blockly.Msg["DATA_LENGTHOFDICT"] = "number of items in %1";
 Blockly.Msg["DATA_SHOWDICT"] = "show dictionary %1";
 Blockly.Msg["DATA_HIDEDICT"] = "hide dictionary %1";
 Blockly.Msg["EVENT_WHENFLAGCLICKED"] = "when %1 clicked";

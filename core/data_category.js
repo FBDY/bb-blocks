@@ -104,12 +104,9 @@ Blockly.DataCategory = function(workspace) {
     Blockly.DataCategory.addSep(xmlList);
     Blockly.DataCategory.addDeleteOfDict(xmlList, firstVariable);
     Blockly.DataCategory.addDeleteAllOfDict(xmlList, firstVariable);
-    // Blockly.DataCategory.addInsertAtList(xmlList, firstVariable);
-    // Blockly.DataCategory.addReplaceItemOfList(xmlList, firstVariable);
     Blockly.DataCategory.addSep(xmlList);
     Blockly.DataCategory.addItemOfDict(xmlList, firstVariable);
-    // Blockly.DataCategory.addItemNumberOfList(xmlList, firstVariable);
-    // Blockly.DataCategory.addLengthOfList(xmlList, firstVariable);
+    Blockly.DataCategory.addLengthOfDict(xmlList, firstVariable);
     // Blockly.DataCategory.addListContainsItem(xmlList, firstVariable);
     Blockly.DataCategory.addSep(xmlList);
     Blockly.DataCategory.addShowDict(xmlList, firstVariable);
@@ -485,6 +482,18 @@ Blockly.DataCategory.addDeleteAllOfDict = function(xmlList, variable) {
   // </block>
   Blockly.DataCategory.addBlock(xmlList, variable, 'data_deleteallofdict',
       'DICT');
+};
+
+/**
+ * Construct and add a data_lengthofdict block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addLengthOfDict = function(xmlList, variable) {
+  // <block type="data_lengthofdict">
+  //   <field name="DICT" variabletype="dict" id="">variablename</field>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_lengthofdict', 'DICT');
 };
 
 /**
