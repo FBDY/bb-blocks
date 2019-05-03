@@ -50,6 +50,7 @@
     "DATA_ITEMOFDICT": "item with key %1 of %2",
     "DATA_LENGTHOFDICT": "number of items in %1",
     "DATA_DICTCONTAINSKEY": "%1 contains key %2?",
+    "DATA_FOREACHKEYINDICT": "for each key %1 in %2",
     "DATA_SHOWDICT": "show dictionary %1",
     "DATA_HIDEDICT": "hide dictionary %1",
     "EVENT_WHENFLAGCLICKED": "when %1 clicked",

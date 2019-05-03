@@ -43,6 +43,7 @@ goog.require('Blockly.Workspace');
 Blockly.DataCategory = function(workspace) {
   var variableModelList = workspace.getVariablesOfType('');
   variableModelList.sort(Blockly.VariableModel.compareByName);
+  const plainVariables = variableModelList;
   var xmlList = [];
 
   Blockly.DataCategory.addCreateButton(xmlList, workspace, 'VARIABLE');
@@ -108,6 +109,10 @@ Blockly.DataCategory = function(workspace) {
     Blockly.DataCategory.addItemOfDict(xmlList, firstVariable);
     Blockly.DataCategory.addLengthOfDict(xmlList, firstVariable);
     Blockly.DataCategory.addDictContainsKey(xmlList, firstVariable);
+    Blockly.DataCategory.addSep(xmlList);
+    if (plainVariables.length > 0) {
+      Blockly.DataCategory.addForEachKeyInDict(xmlList, firstVariable, plainVariables[0]);
+    }
     Blockly.DataCategory.addSep(xmlList);
     Blockly.DataCategory.addShowDict(xmlList, firstVariable);
     Blockly.DataCategory.addHideDict(xmlList, firstVariable);
@@ -512,6 +517,29 @@ Blockly.DataCategory.addDictContainsKey = function(xmlList, variable) {
   // </block>
   Blockly.DataCategory.addBlock(xmlList, variable, 'data_dictcontainskey',
       'DICT', ['KEY', 'text', Blockly.Msg.DEFAULT_DICT_KEY]);
+};
+
+/**
+ * Construct and add a data_for_each_key_in_dict block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addForEachKeyInDict = function(xmlList, variable, iterator) {
+  // <block type="data_for_each_key_in_dict">
+  //   <field name="DICT" variabletype="dict" id="">variablename</field>
+  //   <value name="VARIABLE">
+  //    <shadow type="data_variablemenu"></shadow>
+  //   </value>
+  // </block>
+  var gap = 8;
+  var blockText = '<xml>' +
+    '<block type="' + 'data_for_each_key_in_dict' + '" gap="' + gap + '">' +
+    Blockly.Variables.generateVariableFieldXml_(iterator, '') +
+    Blockly.Variables.generateVariableFieldXml_(variable, 'dict') +
+    '</block>' +
+    '</xml>';
+  var block = Blockly.Xml.textToDom(blockText).firstChild;
+  xmlList.push(block);
 };
 
 /**

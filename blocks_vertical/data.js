@@ -691,6 +691,38 @@ Blockly.Blocks['data_dictcontainskey'] = {
   }
 };
 
+Blockly.Blocks['data_for_each_key_in_dict'] = {
+  /**
+   * Block for dictionary iterator.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "type": "data_for_each_key_in_dict",
+      "message0": Blockly.Msg.DATA_FOREACHKEYINDICT,
+      "message1": "%1",
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "VARIABLE"
+        },
+        {
+          "type": "field_variable",
+          "name": "DICT"
+        }
+      ],
+      "args1": [
+        {
+          "type": "input_statement",
+          "name": "SUBSTACK"
+        }
+      ],
+      "category": Blockly.Categories.dataDicts,
+      "extensions": ["colours_data_dicts", "shape_statement"]
+    });
+  }
+};
+
 Blockly.Blocks['data_hidedict'] = {
   /**
    * Block to hide a dictionary.
