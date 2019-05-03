@@ -109,6 +109,16 @@ Blockly.DataCategory = function(workspace) {
     Blockly.DataCategory.addLengthOfDict(xmlList, firstVariable);
     Blockly.DataCategory.addDictContainsKey(xmlList, firstVariable);
     Blockly.DataCategory.addSep(xmlList);
+    // Prepare the dict iterator block. The block uses a plain variable as the iterator.
+    // So we only create the block when there is a variable in the workspace,
+    // and if there is, we use the first variable (sorted by name) as the default variable.
+    // I'm not very satisfied with this approach, though. But I can't think of a better way.
+    var plainVariables = workspace.getVariablesOfType('');
+    plainVariables.sort(Blockly.VariableModel.compareByName);
+    if (plainVariables.length > 0) {
+      Blockly.DataCategory.addForEachKeyInDict(xmlList, plainVariables[0]);
+    }
+    Blockly.DataCategory.addSep(xmlList);
     Blockly.DataCategory.addShowDict(xmlList, firstVariable);
     Blockly.DataCategory.addHideDict(xmlList, firstVariable);
   }
@@ -512,6 +522,18 @@ Blockly.DataCategory.addDictContainsKey = function(xmlList, variable) {
   // </block>
   Blockly.DataCategory.addBlock(xmlList, variable, 'data_dictcontainskey',
       'DICT', ['KEY', 'text', Blockly.Msg.DEFAULT_DICT_KEY]);
+};
+
+/**
+ * Construct and add a data_for_each_key_in_dict block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addForEachKeyInDict = function(xmlList, variable) {
+  // <block type="data_for_each_key_in_dict">
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_for_each_key_in_dict',
+      'VARIABLE', ['VALUE', 'text', '']);
 };
 
 /**
