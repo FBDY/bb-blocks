@@ -321,6 +321,9 @@ Blockly.FieldVariable.dropdownCreate = function() {
     if (this.defaultType_ == Blockly.LIST_VARIABLE_TYPE) {
       var renameText = Blockly.Msg.RENAME_LIST;
       var deleteText = Blockly.Msg.DELETE_LIST;
+    } else if (this.defaultType_ == Blockly.DICT_VARIABLE_TYPE) {
+      var renameText = Blockly.Msg.RENAME_DICT;
+      var deleteText = Blockly.Msg.DELETE_DICT;
     } else {
       var renameText = Blockly.Msg.RENAME_VARIABLE;
       var deleteText = Blockly.Msg.DELETE_VARIABLE;
