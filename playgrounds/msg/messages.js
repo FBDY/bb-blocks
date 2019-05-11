@@ -81,6 +81,15 @@ Blockly.Msg.DATA_HIDELIST = 'hide list %1';
 Blockly.Msg.DATA_INDEX_ALL = 'all';
 Blockly.Msg.DATA_INDEX_LAST = 'last';
 Blockly.Msg.DATA_INDEX_RANDOM = 'random';
+Blockly.Msg.DATA_ADDTODICT = 'add %1 with key %2 to %3';
+Blockly.Msg.DATA_DELETEOFDICT = 'delete %1 of %2';
+Blockly.Msg.DATA_DELETEALLOFDICT = 'delete all of %1';
+Blockly.Msg.DATA_ITEMOFDICT = 'item with key %1 of %2';
+Blockly.Msg.DATA_LENGTHOFDICT = 'number of items in %1';
+Blockly.Msg.DATA_DICTCONTAINSKEY = '%1 contains key %2?';
+Blockly.Msg.DATA_FOREACHKEYINDICT = 'for each key %1 in %2';
+Blockly.Msg.DATA_SHOWDICT = 'show dictionary %1';
+Blockly.Msg.DATA_HIDEDICT = 'hide dictionary %1';
 
 // Event blocks
 Blockly.Msg.EVENT_WHENFLAGCLICKED = 'when %1 clicked';
@@ -356,6 +365,18 @@ Blockly.Msg.RENAME_LIST_MODAL_TITLE = 'Rename List';
 Blockly.Msg.DEFAULT_LIST_ITEM = 'thing';
 Blockly.Msg.DELETE_LIST = 'Delete the "%1" list';
 Blockly.Msg.RENAME_LIST = 'Rename list';
+
+// Dictionaries
+Blockly.Msg.NEW_DICT = 'Make a Dictionary';
+Blockly.Msg.NEW_DICT_TITLE = 'New dictionary name:';
+Blockly.Msg.DICT_MODAL_TITLE = 'New Dictionary';
+Blockly.Msg.DICT_ALREADY_EXISTS = 'A dictionary named "%1" already exists.';
+Blockly.Msg.RENAME_DICT_TITLE = 'Rename all "%1" dictionaries to:';
+Blockly.Msg.RENAME_DICT_MODAL_TITLE = 'Rename Dictionary';
+Blockly.Msg.DEFAULT_DICT_ITEM = 'thing';
+Blockly.Msg.DEFAULT_DICT_KEY = 'key';
+Blockly.Msg.DELETE_DICT = 'Delete the "%1" dictionary';
+Blockly.Msg.RENAME_DICT = 'Rename dictionary';
 
 // Broadcast Messages
 // @todo Remove these once fully managed by Scratch VM / Scratch GUI

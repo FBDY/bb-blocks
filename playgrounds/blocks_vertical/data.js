@@ -499,6 +499,251 @@ Blockly.Blocks['data_hidelist'] = {
   }
 };
 
+Blockly.Blocks['data_dictcontents'] = {
+  /**
+   * Dictionary reporter.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_variable_getter",
+          "text": "",
+          "name": "DICT",
+          "variableType": Blockly.DICT_VARIABLE_TYPE
+        }
+      ],
+      "category": Blockly.Categories.dataDicts,
+      "extensions": ["contextMenu_getDictBlock", "colours_data_dicts", "output_string"],
+      "checkboxInFlyout": true
+    });
+  }
+};
+
+Blockly.Blocks['data_addtodict'] = {
+  /**
+   * Block to add item to dictionary.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.DATA_ADDTODICT,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "ITEM"
+        },
+        {
+          "type": "input_value",
+          "name": "KEY"
+        },
+        {
+          "type": "field_variable",
+          "name": "DICT",
+          "variableTypes": [Blockly.DICT_VARIABLE_TYPE]
+        }
+      ],
+      "category": Blockly.Categories.dataDicts,
+      "extensions": ["colours_data_dicts", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['data_deleteofdict'] = {
+  /**
+   * Block to delete item from dictionary.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.DATA_DELETEOFDICT,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "KEY"
+        },
+        {
+          "type": "field_variable",
+          "name": "DICT",
+          "variableTypes": [Blockly.DICT_VARIABLE_TYPE]
+        }
+      ],
+      "category": Blockly.Categories.dataDicts,
+      "extensions": ["colours_data_dicts", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['data_deleteallofdict'] = {
+  /**
+   * Block to delete all items from dictionary.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.DATA_DELETEALLOFDICT,
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "DICT",
+          "variableTypes": [Blockly.DICT_VARIABLE_TYPE]
+        }
+      ],
+      "category": Blockly.Categories.dataDicts,
+      "extensions": ["colours_data_dicts", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['data_itemofdict'] = {
+  /**
+   * Block for reporting item of dictionary.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.DATA_ITEMOFDICT,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "KEY"
+        },
+        {
+          "type": "field_variable",
+          "name": "DICT",
+          "variableTypes": [Blockly.DICT_VARIABLE_TYPE]
+        }
+      ],
+      "output": null,
+      "category": Blockly.Categories.dataDicts,
+      "extensions": ["colours_data_dicts"],
+      "outputShape": Blockly.OUTPUT_SHAPE_ROUND
+    });
+  }
+};
+
+Blockly.Blocks['data_lengthofdict'] = {
+  /**
+   * Block for reporting length of (number of items in) dictionary.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.DATA_LENGTHOFDICT,
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "DICT",
+          "variableTypes": [Blockly.DICT_VARIABLE_TYPE]
+        }
+      ],
+      "category": Blockly.Categories.dataDicts,
+      "extensions": ["colours_data_dicts", "output_number"]
+    });
+  }
+};
+
+Blockly.Blocks['data_showdict'] = {
+  /**
+   * Block to show a dictionary.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.DATA_SHOWDICT,
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "DICT",
+          "variableTypes": [Blockly.DICT_VARIABLE_TYPE]
+        }
+      ],
+      "category": Blockly.Categories.dataDicts,
+      "extensions": ["colours_data_dicts", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['data_dictcontainskey'] = {
+  /**
+   * Block to report whether dictionary contains key.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.DATA_DICTCONTAINSKEY,
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "DICT",
+          "variableTypes": [Blockly.DICT_VARIABLE_TYPE]
+        },
+        {
+          "type": "input_value",
+          "name": "KEY"
+        }
+      ],
+      "category": Blockly.Categories.dataDicts,
+      "extensions": ["colours_data_dicts", "output_boolean"]
+    });
+  }
+};
+
+Blockly.Blocks['data_for_each_key_in_dict'] = {
+  /**
+   * Block for dictionary iterator.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "type": "data_for_each_key_in_dict",
+      "message0": Blockly.Msg.DATA_FOREACHKEYINDICT,
+      "message1": "%1",
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "VARIABLE"
+        },
+        {
+          "type": "input_value",
+          "name": "DICT"
+        }
+      ],
+      "args1": [
+        {
+          "type": "input_statement",
+          "name": "SUBSTACK"
+        }
+      ],
+      "category": Blockly.Categories.dataDicts,
+      "extensions": ["colours_data_dicts", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['data_hidedict'] = {
+  /**
+   * Block to hide a dictionary.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.DATA_HIDEDICT,
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "DICT",
+          "variableTypes": [Blockly.DICT_VARIABLE_TYPE]
+        }
+      ],
+      "category": Blockly.Categories.dataDicts,
+      "extensions": ["colours_data_dicts", "shape_statement"]
+    });
+  }
+};
+
 /**
  * Mixin to add a context menu for a data_variable block.  It adds one item for
  * each variable defined on the workspace.
@@ -611,6 +856,61 @@ Blockly.Constants.Data.CUSTOM_CONTEXT_MENU_GET_LIST_MIXIN = {
 };
 Blockly.Extensions.registerMixin('contextMenu_getListBlock',
     Blockly.Constants.Data.CUSTOM_CONTEXT_MENU_GET_LIST_MIXIN);
+
+/**
+ * Mixin to add a context menu for a data_dictcontents block. It adds one item for
+ * each dictionary defined on the workspace.
+ * @mixin
+ * @augments Blockly.Block
+ * @package
+ * @readonly
+ */
+Blockly.Constants.Data.CUSTOM_CONTEXT_MENU_GET_DICT_MIXIN = {
+  /**
+   * Add context menu option to change the selected dictionary.
+   * @param {!Array} options List of menu options to add to.
+   * @this Blockly.Block
+   */
+  customContextMenu: function(options) {
+    var fieldName = 'DICT';
+    if (this.isCollapsed()) {
+      return;
+    }
+    var currentVarName = this.getField(fieldName).text_;
+    if (!this.isInFlyout) {
+      var variablesList = this.workspace.getVariablesOfType('dict');
+      for (var i = 0; i < variablesList.length; i++) {
+        var varName = variablesList[i].name;
+        if (varName == currentVarName) continue;
+
+        var option = {enabled: true};
+        option.text = varName;
+
+        option.callback =
+            Blockly.Constants.Data.VARIABLE_OPTION_CALLBACK_FACTORY(this,
+                variablesList[i].getId(), fieldName);
+        options.push(option);
+      }
+    } else {
+      var renameOption = {
+        text: Blockly.Msg.RENAME_DICT,
+        enabled: true,
+        callback: Blockly.Constants.Data.RENAME_OPTION_CALLBACK_FACTORY(this,
+            fieldName)
+      };
+      var deleteOption = {
+        text: Blockly.Msg.DELETE_DICT.replace('%1', currentVarName),
+        enabled: true,
+        callback: Blockly.Constants.Data.DELETE_OPTION_CALLBACK_FACTORY(this,
+            fieldName)
+      };
+      options.push(renameOption);
+      options.push(deleteOption);
+    }
+  }
+};
+Blockly.Extensions.registerMixin('contextMenu_getDictBlock',
+    Blockly.Constants.Data.CUSTOM_CONTEXT_MENU_GET_DICT_MIXIN);
 
 /**
  * Callback factory for dropdown menu options associated with a variable getter

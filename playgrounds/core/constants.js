@@ -265,6 +265,7 @@ Blockly.Categories = {
   "pen": "pen",
   "data": "data",
   "dataLists": "data-lists",
+  "dataDicts": "data-dicts",
   "event": "events",
   "control": "control",
   "sensing": "sensing",
@@ -365,6 +366,14 @@ Blockly.CLONE_NAME_VARIABLE_TYPE = 'clone_name';
  * @const {string}
  */
 Blockly.LIST_VARIABLE_TYPE = 'list';
+
+/**
+ * String representing the variable type of dictionary blocks.
+ * This string, for use in differentiating between types of variables,
+ * indicates that the current variable is a dictionary.
+ * @const {string}
+ */
+Blockly.DICT_VARIABLE_TYPE = 'dict';
 
 // TODO (#1251) Replace '' below with 'scalar', and start using this constant
 // everywhere.

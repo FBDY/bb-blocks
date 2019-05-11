@@ -284,6 +284,9 @@ Blockly.Variables.createVariable = function(workspace, opt_callback, opt_type) {
   } else if (opt_type == Blockly.LIST_VARIABLE_TYPE) {
     newMsg = Blockly.Msg.NEW_LIST_TITLE;
     modalTitle = Blockly.Msg.LIST_MODAL_TITLE;
+  } else if (opt_type == Blockly.DICT_VARIABLE_TYPE) {
+    newMsg = Blockly.Msg.NEW_DICT_TITLE;
+    modalTitle = Blockly.Msg.DICT_MODAL_TITLE;
   } else if (opt_type == Blockly.CLONE_NAME_VARIABLE_TYPE) {
     newMsg = Blockly.Msg.NEW_CLONE_TITLE;
     modalTitle = Blockly.Msg.NEW_CLONE_MODAL_TITLE;
@@ -377,19 +380,22 @@ Blockly.Variables.nameValidator_ = function(type, text, workspace, additionalVar
   // For broadcast messages, if a broadcast message of the provided name already exists,
   // the validator needs to call a function that updates the selected
   // field option of the dropdown menu of the block that was used to create the new message.
-  // For scalar variables and lists, the validator has the same validation behavior, but needs
+  // For scalar variables, lists and dictionaries, the validator has the same validation behavior, but needs
   // to know which type of variable to check for and needs a type-specific error message
   // that is displayed when a variable of the given name and type already exists.
 
   if (type == Blockly.BROADCAST_MESSAGE_VARIABLE_TYPE) {
     return Blockly.Variables.validateBroadcastMessageName_(text, workspace, opt_callback);
   } else if (type == Blockly.LIST_VARIABLE_TYPE) {
-    return Blockly.Variables.validateScalarVarOrListName_(text, workspace, additionalVars, false, type,
+    return Blockly.Variables.validateScalarVarOrListOrDictName_(text, workspace, additionalVars, false, type,
         Blockly.Msg.LIST_ALREADY_EXISTS);
+  } else if (type == Blockly.DICT_VARIABLE_TYPE) {
+    return Blockly.Variables.validateScalarVarOrListOrDictName_(text, workspace, additionalVars, false, type,
+        Blockly.Msg.DICT_ALREADY_EXISTS);
   } else if (type == Blockly.CLONE_NAME_VARIABLE_TYPE) {
     return Blockly.Variables.validateCloneName_(text, workspace);
   } else {
-    return Blockly.Variables.validateScalarVarOrListName_(text, workspace, additionalVars, isCloud, type,
+    return Blockly.Variables.validateScalarVarOrListOrDictName_(text, workspace, additionalVars, isCloud, type,
         Blockly.Msg.VARIABLE_ALREADY_EXISTS);
   }
 };
@@ -453,7 +459,7 @@ Blockly.Variables.validateBroadcastMessageName_ = function(name, workspace, opt_
 };
 
 /**
- * Validate the given name as a scalar variable or list type.
+ * Validate the given name as a scalar variable or list type (or dictionary type in BBGE).
  * This function is also responsible for any user facing error-handling.
  * @param {string} name The name to validate
  * @param {!Blockly.Workspace} workspace The workspace the name should be validated
@@ -462,13 +468,14 @@ Blockly.Variables.validateBroadcastMessageName_ = function(name, workspace, opt_
  *     for conflicts against.
  * @param {boolean} isCloud Whether the variable is a cloud variable.
  * @param {string} type The type to validate the variable as. This should be one of
- *     Blockly.SCALAR_VARIABLE_TYPE or Blockly.LIST_VARIABLE_TYPE.
+ *     Blockly.SCALAR_VARIABLE_TYPE or Blockly.LIST_VARIABLE_TYPE
+ *     (or Blockly.DICT_VARIABLE_TYPE in BBGE).
  * @param {string} errorMsg The type-specific error message the user should see
  *     if a variable of the validated, given name and type already exists.
  * @return {string} The validated name, or null if invalid.
  * @private
  */
-Blockly.Variables.validateScalarVarOrListName_ = function(name, workspace, additionalVars,
+Blockly.Variables.validateScalarVarOrListOrDictName_ = function(name, workspace, additionalVars,
     isCloud, type, errorMsg) {
   // For scalar variables, we don't want leading or trailing white space
   name = Blockly.Variables.trimName_(name);
@@ -509,6 +516,9 @@ Blockly.Variables.renameVariable = function(workspace, variable,
   if (varType == Blockly.LIST_VARIABLE_TYPE) {
     promptMsg = Blockly.Msg.RENAME_LIST_TITLE;
     modalTitle = Blockly.Msg.RENAME_LIST_MODAL_TITLE;
+  } else if (varType == Blockly.DICT_VARIABLE_TYPE) {
+    promptMsg = Blockly.Msg.RENAME_DICT_TITLE;
+    modalTitle = Blockly.Msg.RENAME_DICT_MODAL_TITLE;
   } else {
     // Default for all other types of variables
     promptMsg = Blockly.Msg.RENAME_VARIABLE_TITLE;

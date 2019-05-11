@@ -89,6 +89,40 @@ Blockly.DataCategory = function(workspace) {
     Blockly.DataCategory.addHideList(xmlList, firstVariable);
   }
 
+  Blockly.DataCategory.addCreateButton(xmlList, workspace, 'DICT');
+  variableModelList = workspace.getVariablesOfType(Blockly.DICT_VARIABLE_TYPE);
+  variableModelList.sort(Blockly.VariableModel.compareByName);
+  for (var i = 0; i < variableModelList.length; i++) {
+    Blockly.DataCategory.addDataDict(xmlList, variableModelList[i]);
+  }
+
+  if (variableModelList.length > 0) {
+    xmlList[xmlList.length - 1].setAttribute('gap', 24);
+    var firstVariable = variableModelList[0];
+
+    Blockly.DataCategory.addAddToDict(xmlList, firstVariable);
+    Blockly.DataCategory.addSep(xmlList);
+    Blockly.DataCategory.addDeleteOfDict(xmlList, firstVariable);
+    Blockly.DataCategory.addDeleteAllOfDict(xmlList, firstVariable);
+    Blockly.DataCategory.addSep(xmlList);
+    Blockly.DataCategory.addItemOfDict(xmlList, firstVariable);
+    Blockly.DataCategory.addLengthOfDict(xmlList, firstVariable);
+    Blockly.DataCategory.addDictContainsKey(xmlList, firstVariable);
+    Blockly.DataCategory.addSep(xmlList);
+    // Prepare the dict iterator block. The block uses a plain variable as the iterator.
+    // So we only create the block when there is a variable in the workspace,
+    // and if there is, we use the first variable (sorted by name) as the default variable.
+    // I'm not very satisfied with this approach, though. But I can't think of a better way.
+    var plainVariables = workspace.getVariablesOfType('');
+    plainVariables.sort(Blockly.VariableModel.compareByName);
+    if (plainVariables.length > 0) {
+      Blockly.DataCategory.addForEachKeyInDict(xmlList, plainVariables[0]);
+    }
+    Blockly.DataCategory.addSep(xmlList);
+    Blockly.DataCategory.addShowDict(xmlList, firstVariable);
+    Blockly.DataCategory.addHideDict(xmlList, firstVariable);
+  }
+
   return xmlList;
 };
 
@@ -227,7 +261,7 @@ Blockly.DataCategory.addDeleteOfList = function(xmlList, variable) {
 };
 
 /**
- * Construct and add a data_deleteoflist block to xmlList.
+ * Construct and add a data_deletealloflist block to xmlList.
  * @param {!Array.<!Element>} xmlList Array of XML block elements.
  * @param {?Blockly.VariableModel} variable Variable to select in the field.
  */
@@ -375,6 +409,158 @@ Blockly.DataCategory.addHideList = function(xmlList, variable) {
 };
 
 /**
+ * Construct and add a data_dictcontents block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addDataDict = function(xmlList, variable) {
+  // <block id="variableId" type="data_dictcontents">
+  //    <field name="DICT">variablename</field>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_dictcontents', 'DICT');
+  // In the flyout, this ID must match variable ID for monitor syncing reasons
+  xmlList[xmlList.length - 1].setAttribute('id', variable.getId());
+};
+
+/**
+ * Construct and add a data_addtodict block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addAddToDict = function(xmlList, variable) {
+  // <block type="data_addtodict">
+  //   <field name="DICT" variabletype="dict" id="">variablename</field>
+  //   <value name="ITEM">
+  //     <shadow type="text">
+  //       <field name="TEXT">thing</field>
+  //     </shadow>
+  //   </value>
+  //   <value name="KEY">
+  //     <shadow type="text">
+  //       <field name="TEXT">key</field>
+  //     </shadow>
+  //   </value>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_addtodict', 'DICT',
+      ['ITEM', 'text', Blockly.Msg.DEFAULT_DICT_ITEM], ['KEY', 'text', Blockly.Msg.DEFAULT_DICT_KEY]);
+};
+
+/**
+ * Construct and add a data_itemofdict block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addItemOfDict = function(xmlList, variable) {
+  // <block type="data_itemofdict">
+  //   <field name="DICT" variabletype="dict" id="">variablename</field>
+  //   <value name="KEY">
+  //     <shadow type="text">
+  //       <field name="TEXT">key</field>
+  //     </shadow>
+  //   </value>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_itemofdict', 'DICT',
+      ['KEY', 'text', Blockly.Msg.DEFAULT_DICT_KEY]);
+};
+
+/**
+ * Construct and add a data_deleteofdict block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addDeleteOfDict = function(xmlList, variable) {
+  // <block type="data_deleteofdict">
+  //   <field name="DICT" variabletype="dict" id="">variablename</field>
+  //   <value name="KEY">
+  //     <shadow type="text">
+  //       <field name="TEXT">key</field>
+  //     </shadow>
+  //   </value>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_deleteofdict', 'DICT',
+      ['KEY', 'text', Blockly.Msg.DEFAULT_DICT_KEY]);
+};
+
+/**
+ * Construct and add a data_deleteallofdict block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addDeleteAllOfDict = function(xmlList, variable) {
+  // <block type="data_deleteallofdict">
+  //   <field name="DICT" variabletype="dict" id="">variablename</field>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_deleteallofdict',
+      'DICT');
+};
+
+/**
+ * Construct and add a data_lengthofdict block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addLengthOfDict = function(xmlList, variable) {
+  // <block type="data_lengthofdict">
+  //   <field name="DICT" variabletype="dict" id="">variablename</field>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_lengthofdict', 'DICT');
+};
+
+/**
+ * Construct and add a data_dictcontainskey block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addDictContainsKey = function(xmlList, variable) {
+  // <block type="data_dictcontainskey">
+  //   <field name="DICT" variabletype="dict" id="">variablename</field>
+  //   <value name="KEY">
+  //     <shadow type="text">
+  //       <field name="TEXT">key</field>
+  //     </shadow>
+  //   </value>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_dictcontainskey',
+      'DICT', ['KEY', 'text', Blockly.Msg.DEFAULT_DICT_KEY]);
+};
+
+/**
+ * Construct and add a data_for_each_key_in_dict block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addForEachKeyInDict = function(xmlList, variable) {
+  // <block type="data_for_each_key_in_dict">
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_for_each_key_in_dict',
+      'VARIABLE', ['VALUE', 'text', '']);
+};
+
+/**
+ * Construct and add a data_showdict block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addShowDict = function(xmlList, variable) {
+  // <block type="data_showdict">
+  //   <field name="DICT" variabletype="dict" id="">variablename</field>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_showdict', 'DICT');
+};
+
+/**
+ * Construct and add a data_hidedict block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addHideDict = function(xmlList, variable) {
+  // <block type="data_hidedict">
+  //   <field name="DICT" variabletype="dict" id="">variablename</field>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_hidedict', 'DICT');
+};
+
+/**
  * Construct a create variable button and push it to the xmlList.
  * @param {!Array.<!Element>} xmlList Array of XML block elements.
  * @param {Blockly.Workspace} workspace Workspace to register callback to.
@@ -395,6 +581,12 @@ Blockly.DataCategory.addCreateButton = function(xmlList, workspace, type) {
     callback = function(button) {
       Blockly.Variables.createVariable(button.getTargetWorkspace(), null,
           Blockly.LIST_VARIABLE_TYPE);};
+  } else if (type === 'DICT') {
+    msg = Blockly.Msg.NEW_DICT;
+    callbackKey = 'CREATE_DICT';
+    callback = function(button) {
+      Blockly.Variables.createVariable(button.getTargetWorkspace(), null,
+          Blockly.DICT_VARIABLE_TYPE);};
   }
   button.setAttribute('text', msg);
   button.setAttribute('callbackKey', callbackKey);
@@ -427,7 +619,7 @@ Blockly.DataCategory.addBlock = function(xmlList, variable, blockType,
     }
     if (opt_secondValue) {
       secondValueField = Blockly.DataCategory.createValue(opt_secondValue[0],
-          opt_secondValue[1], opt_value[2]);
+          opt_secondValue[1], opt_secondValue[2]);
     }
 
     var gap = 8;
@@ -454,6 +646,8 @@ Blockly.DataCategory.createValue = function(valueName, type, value) {
   var fieldName;
   switch (valueName) {
     case 'ITEM':
+      // Fall through.
+    case 'KEY':
       fieldName = 'TEXT';
       break;
     case 'INDEX':

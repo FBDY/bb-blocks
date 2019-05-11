@@ -77,6 +77,12 @@ Blockly.Colours = {
     "secondary": "#FF5500",
     "tertiary": "#E64D00"
   },
+  "data_dicts": {
+    // TODO: May reconsider these colours.
+    "primary": "#0FFF0F",
+    "secondary": "#00C614",
+    "tertiary": "#006005"
+  },
   "more": {
     "primary": "#FF6680",
     "secondary": "#FF4D6A",
